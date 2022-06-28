@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ErroPage from "../pages/Erro/ErroPage";
+import ErroPage from "../pages/Error/ErrorPage";
 
 export function Router() {
    return (
