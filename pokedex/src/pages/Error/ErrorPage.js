@@ -4,8 +4,7 @@ import { ErroDiv } from "./styled"
 const ErroPage = () => {
    return (
       <>
-         <ErroDiv imagem={ErroImg}>
-         </ErroDiv>
+         <ErroDiv imagem={ErroImg} />
       </>
    )
 }
