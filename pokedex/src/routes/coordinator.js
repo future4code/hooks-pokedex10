@@ -1,12 +1,15 @@
 export const goToHomePage = (navigate) => {
-    navigate ("/")
-} 
+    navigate("/")
+}
 
 export const goToPokedexPage = (navigate) => {
-    navigate ("/pokedexpage")
+    navigate("/pokedexpage")
 }
 
 export const goToPokemonDetailsPage = (navigate) => {
-    navigate ("/pokemondetails")
-}   
+    navigate("/pokemondetails")
+}
 
+export const goBack = (navigate) => {
+    navigate(-1)
+} 
