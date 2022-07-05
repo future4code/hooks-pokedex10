@@ -1,27 +1,24 @@
 import { FooterDiv, LinksDiv } from "./styled"
-import {
-   RiArrowDropRightFill, RiFacebookBoxFill, RiTwitterFill,
-   RiYoutubeFill, RiInstagramFill
-} from "react-icons/ri"
+import { RiArrowDropRightFill, RiFacebookBoxFill, RiTwitterFill, RiYoutubeFill, RiInstagramFill } from "react-icons/ri"
 
 const Footer = () => {
+
    return (
       <FooterDiv>
          <LinksDiv>
             <h2> Links Interessantes </h2>
-            <a href="https://www.pokemon.com/br/noticias-pokemon/" target="_blank" rel="noreferrer">
+            <a href="https://www.pokemon.com/br/noticias-pokemon/" target="_blank" rel="external">
                <span><RiArrowDropRightFill /></span> Notícias de Pokémon
             </a>
-            <a href="https://watch.pokemon.com/pt-br/#/" target="_blank" rel="noreferrer">
+            <a href="https://watch.pokemon.com/pt-br/#/" target="_blank" rel="external">
                <span><RiArrowDropRightFill /></span> Episódios de Pokémon
             </a>
-
          </LinksDiv>
 
          <hr />
 
          <h3>
-            ©2022 Pokédex. ©1995 - 2022 Nintendo/Creatures <br /> Inc./GAME FREAK inc. TM, ®Nintendo.
+            ©2022 Pokédex. ©1996 - 2022 Pokémon Red &amp; Green <br /> Inc./GAME FREAK inc. TM, ®Nintendo.
          </h3>
 
          <hr />

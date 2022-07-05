@@ -4,7 +4,7 @@ import { GlobalContext } from './GlobalContext'
 export default function GlobalState(props) {
 
    const [pokedex, setPokedex] = useState([])
-   const [pageBefore, setPageBefore] = useStae([])
+   const [pageBefore, setPageBefore] = useState([])
 
    const states = { pokedex, pageBefore }
    const setters = { setPokedex, setPageBefore }
