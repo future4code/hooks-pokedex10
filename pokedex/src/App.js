@@ -1,16 +1,17 @@
 import { Router } from "./routes/Routes"
 import { GlobalStyle } from "./AppStyled"
-import Footer from "../src/components/Footer/Footer"
-import Header from "../src/components/Header/Header"
+//import theme from './theme/theme'
+import { ChakraProvider } from '@chakra-ui/react'
+import GlobalState from "./global/GlobalState"
 
 function App() {
   return (
-    <div>
-      <GlobalStyle />
-      <Header />
-      <Router />
-      <Footer />
-    </div>
+    <GlobalState>
+      <ChakraProvider >
+        <GlobalStyle />
+        <Router />
+      </ChakraProvider>
+    </GlobalState>
   );
 }
 

@@ -4,7 +4,7 @@ export const FooterDiv = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #A9A9A9;
+    background-color: #666666;
     height: 16vh;
     width: 100%;
     padding: 1.5em;
@@ -16,7 +16,8 @@ export const FooterDiv = styled.div`
     }
     h3 {
         font-size: 12px;
-        opacity: 85%;
+        //opacity: 85%;
+        color: black;
     }
     nav{
         display: flex;
@@ -29,7 +30,7 @@ export const FooterDiv = styled.div`
         }
 
         svg{
-         color:#363636;
+         color:black;
 
          :hover{
                color: white;
@@ -57,7 +58,7 @@ export const LinksDiv = styled.div`
         align-items: center;
         font-size: 13px;
         font-weight: bold;
-        color: #363636;
+        color: black;
         :hover{
             color: white;
         }
