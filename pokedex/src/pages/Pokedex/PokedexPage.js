@@ -1,19 +1,45 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { goToHomePage } from '../../routes/coordinator'
-
+import Footer from "../../components/Footer/Footer"
+import Header from "../../components/Header/Header"
+import { useContext } from "react"
+import { GlobalContext } from "../../global/GlobalContext"
+import Card from "../../components/Card/Card"
+import { Grid } from "@chakra-ui/layout"
+import { PokedexContainer, PokedexMain, DivDexEmpty } from './styled'
+import Vazio from '../../assets/vazio.png'
 
 const PokedexPage = () => {
+   const { states } = useContext(GlobalContext)
 
-   const navigate = useNavigate()
+   const pokedex = states.pokedex
 
    return (
-      <div>
-         <p>A página da Pokedex do usuário será bem parecida com a página inicial. A diferença é que a lista de Pokemons que será renderizada na tela não virá diretamente da API, mas sim dos Pokemons previamente selecionados pelo próprio usuário.</p>
-         <button onClick={()=>goToHomePage(navigate)} > Voltar para minha lista de Pokemons </button>
-      </div>
+      <PokedexContainer>
+         <Header />
+         <PokedexMain>
+            {pokedex.length !== 0 ?
+               <Grid
+                  gap={10}
+                  mt={20}
+                  px={20}
+                  templateColumns="repeat(4, 18rem)"
+                  templateRows="auto"
+               >
+                  {pokedex
+                     .sort((a, b) => a.id - b.id)
+                     .map((poke) => {
+                        return <Card pokeName={poke.name} page={'pokedex'} />
+                     })}
+               </Grid>
+               :
+               <DivDexEmpty>
+                  <p></p>
+                  <img src={Vazio} alt="Imagem por não ter Pokemon na Pokedex" />
+               </DivDexEmpty>
+            }
+         </PokedexMain>
+         <Footer />
+      </PokedexContainer>
    )
 }
 
-
-export default PokedexPage
+export default PokedexPage;
