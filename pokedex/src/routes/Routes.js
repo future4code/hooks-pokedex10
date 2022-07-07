@@ -10,7 +10,7 @@ export function Router() {
          <Routes>
             <Route index element={<HomePage />} />
             <Route path='/pokedex' element={<PoquedexPage />} />
-            <Route path='/pokemon/:id' element={<PokemonDetailsPage />} />
+            <Route path='/pokemon/:idDoPokemon' element={<PokemonDetailsPage />} />
             <Route path='*' element={<ErroPage />} />
          </Routes>
       </BrowserRouter>
