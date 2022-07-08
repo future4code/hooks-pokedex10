@@ -1,66 +1,61 @@
 import styled from 'styled-components'
-import { colors } from '../../theme/pokemonTypeColors'
 
-
-export const PageDetailsContainer = styled.div `
-    display: flex;
-    flex-direction: column;
-    border: 1px black solid
-`
-
-export const ContainerMain = styled.div`
-    display: flex;
-    flex-direction: row;
-    border: 1px black solid;
-    margin: auto
-
-`
-
-export const HeaderDetails = styled.div`
-
-    display: flex;
-    flex-direction: row;
-    border: 1px black solid;
-    align-items: center;
-    justify-content: center;
-
-`
-
-export const ContainerType = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px black solid
-
-`
-
-export const ContainerMoves = styled.div `
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px black solid
-
-
-`
-
-export const ContainerStats = styled.div `
-
-display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px black solid
-
-
-`
-
-export const ScreenImg = styled.div `
+export const PageContainer = styled.div`
+    max-width: 80vw;
+    margin: auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
    
-   width: 200px;
-   height: 200px;
-   border: 1px black solid
+`
+export const InfoContainer = styled.div`
+    display:flex;
+    gap:20px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    
+`
+export const Img = styled.img`
+    height: 80%;
+`
 
+export const InfoCenterDiv = styled.div`
+    display: flex;
+    max-width: 30%;
+    min-width: 30%;
+    flex-direction: column;
+    justify-content: space-between;
+`
+
+export const ButtonContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:white;
+    -webkit-text-stroke: 0.7px black;
+    span{
+        text-transform: capitalize;
+    }
+    button{
+        font-size: 2rem;
+        :hover{
+            opacity: 85%;
+            color:black;
+        }
+    }
+`
+//--------------------------
+export const PokeBallContainer = styled.span`
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 7%;
+    img{
+        width: 12%;
+        cursor: pointer;
+    }
 `

@@ -1,85 +1,77 @@
-import React, { useEffect, useState } from 'react'
-import { goToPokedexPage } from '../../routes/coordinator'
-import axios from "axios"
-import { useParams } from 'react-router-dom'
-import { Container } from '@chakra-ui/react'
-import { ContainerMoves, ContainerStats, ContainerType, HeaderDetails, PageDetailsContainer, ScreenImg, ContainerMain } from './styled'
+import PokemonType from '../../components/PokemonTypes/PokemonTypes'
+import PokemonStats from '../../components/PokemonStats/PokemonStats'
+import useRequestData from '../../hook/useRequestData'
+import { InfoContainer, PageContainer, Img, InfoCenterDiv, ButtonContainer } from './styled'
+import { Box } from "@chakra-ui/react"
+import { colors } from '../../theme/pokemonTypeColors'
+import PokeWeakness from '../../components/PokeWeakness/PokeWeakness'
+import PokemonMoves from '../../components/PokemonMoves/PokemonMoves'
+import PokemonSprites from '../../components/PokemonSprites/PokemonSprites'
+import { useNavigate, useParams } from 'react-router-dom'
+import { goToPokemonDetailsPage } from '../../routes/coordinator'
+import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io"
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+
+const PokemonDetailsPage = (props) => {
+   const navigate = useNavigate()
+   const params = useParams()
+   let pokemonData = useRequestData({}, `https://pokeapi.co/api/v2/pokemon/${params.id}`)
+
+   const onClickNext = () => {
+      params.id !== '898' && goToPokemonDetailsPage(navigate, Number(params.id) + 1)
+   }
+   const onClickPrevious = () => {
+      params.id !== '1' && goToPokemonDetailsPage(navigate, Number(params.id) - 1)
+   }
 
 
-const PokemonDetailsPage = () => {
 
-   const [detailsPokemon,setDetailsPokemon] = useState ([])
-   const {idDoPokemon} = useParams ()
-
-   useEffect(()=>{
-      axios
-      .get (`https://pokeapi.co/api/v2/pokemon/${idDoPokemon}`)
-      .then ((resp)=>setDetailsPokemon(resp.data))
-            
-   },[])
-
-
-   const renderPokemonStats = detailsPokemon.stats && detailsPokemon.stats.map((stat,)=>{
-      return <div>
-         <p>{stat.stat.name}</p>
-         <p>{stat.base_stat}</p>
-
-      </div>
-   })
-
-   const renderPokemonMoves = detailsPokemon.moves && detailsPokemon.moves.map((move)=>{
-      return <div>{move.move.name}</div>
-   })
-
-   const renderPokemonType = detailsPokemon.type && detailsPokemon.type.map ((type)=>{
-      return <div>
-         <p>{type.type.name}</p>
-      </div>
-   })
    return (
-      <div>
-         <PageDetailsContainer>
-               <HeaderDetails>
-                  {idDoPokemon}
-                  {detailsPokemon && detailsPokemon.sprites && (<div>
-                        <img src={detailsPokemon.sprites.versions["generation-ii"].crystal.front_default}/>                  
-                  </div>) }
-                  <button onClick={()=>goToPokedexPage} > voltar </button>
-               </HeaderDetails>
+      <>
+         <Header page="details" />
+         <PageContainer>
+            {pokemonData.types && <Box bgGradient={`linear(to top, #f8f6f45a 0.05%, ${colors[pokemonData.types[0].type.name]} 80%, ${colors[pokemonData.types[0].type.name]} 50%)`}
+               boxShadow='md' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', height: '35vh', borderRadius: '10px', paddingBottom: '10px' }}>
+               <ButtonContainer>
+                  <button onClick={onClickPrevious}><IoIosArrowDropleftCircle /></button>
 
-            <ContainerMain>        
+                  <p>#{('00' + pokemonData.id).slice(-3)} <span>{pokemonData.name}</span></p>
 
-                  <ContainerStats>
-                     <h2>Estatísticas</h2>
-                     {renderPokemonStats}
-                  </ContainerStats> 
+                  <button onClick={onClickNext}><IoIosArrowDroprightCircle /></button>
+               </ButtonContainer>
+               <Img src={pokemonData.sprites.other['official-artwork'].front_default} alt={pokemonData.name} />
 
+            </Box>}
 
-               <ScreenImg>
-               {detailsPokemon && detailsPokemon.sprites && (<div>
-                     <img src={detailsPokemon.sprites.versions["generation-v"]["black-white"].animated.front_default}/>
-                     <img src={detailsPokemon.sprites.versions["generation-v"]["black-white"].animated.back_default}/>
+            {
+               pokemonData.stats && <InfoContainer>
+                  <PokemonStats
+                     stats={pokemonData.stats}
+                     type={pokemonData.types[0].type.name}
+                  />
+                  <InfoCenterDiv>
+                     <PokemonType types={pokemonData.types}
+                     />
+                     <PokeWeakness
+                        types={pokemonData.types}
+                     />
+                     <PokemonSprites
+                        sprites={params.id <= 649 ? pokemonData.sprites.versions['generation-v']['black-white'].animated : pokemonData.sprites}
+                        name={pokemonData.name}
+                     />
+                  </InfoCenterDiv>
+                  <PokemonMoves
+                     moves={pokemonData.moves}
+                     type={pokemonData.types[0].type.name}
+                  />
 
-               </div>) }
-               </ScreenImg>
-               
-               
-                        <ContainerMoves>
-                  <h2>Movimentos</h2>
-                  {renderPokemonMoves}
-               </ContainerMoves>
-
-               <ContainerType>        
-                  {renderPokemonType}
-               </ContainerType>
-               
-             </ContainerMain> 
-        
-
-            </PageDetailsContainer>
-      </div>
+               </InfoContainer>
+            }
+         </PageContainer>
+         <Footer />
+      </>
    )
 }
-
 
 export default PokemonDetailsPage
