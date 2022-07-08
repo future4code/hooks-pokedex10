@@ -86,7 +86,7 @@ function Card(props) {
          {pokemon.name &&
             <CardContainer type={pokemon.types[0].type.name}>
 
-               <span> #{('00' + pokemon.id).slice(-3)} </span>
+               <span className="num"> #{('00' + pokemon.id).slice(-3)} </span>
 
                <PokeImg onClick={() => goToDetaisl(pokemon.name) }
                   src={pokemon.sprites.other['official-artwork'].front_default}
