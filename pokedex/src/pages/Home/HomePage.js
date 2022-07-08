@@ -81,7 +81,9 @@ const HomePage = () => {
          return <Card pokeName={poke.name} page={"home"} id={poke.id} />
       })
 
-      return render
+      return render 
+
+      
    }
 
    return (

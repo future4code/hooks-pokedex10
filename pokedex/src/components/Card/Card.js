@@ -76,8 +76,8 @@ function Card(props) {
       )
    })
 
-   const goToDetaisl = (id) => {
-      goToPokemonDetailsPage(navigate, id)
+   const goToDetaisl = (name) => {
+      navigate(`/pokemon/${name}`)
       setPageBefore(props.page)
    }
 
@@ -88,7 +88,7 @@ function Card(props) {
 
                <span className="num"> #{('00' + pokemon.id).slice(-3)} </span>
 
-               <PokeImg onClick={() => goToDetaisl(pokemon.id)}
+               <PokeImg onClick={() => goToDetaisl(pokemon.name) }
                   src={pokemon.sprites.other['official-artwork'].front_default}
                   alt={pokemon.name}
                />
