@@ -3,7 +3,7 @@ import { goToPokedexPage } from '../../routes/coordinator'
 import axios from "axios"
 import { useParams } from 'react-router-dom'
 import { Container } from '@chakra-ui/react'
-import { ContainerMoves, ContainerType, PageDetailsContainer } from './styled'
+import { ContainerMoves, ContainerStats, ContainerType, HeaderDetails, PageDetailsContainer, ScreenImg, ContainerMain } from './styled'
 
 
 const PokemonDetailsPage = () => {
@@ -15,8 +15,7 @@ const PokemonDetailsPage = () => {
       axios
       .get (`https://pokeapi.co/api/v2/pokemon/${idDoPokemon}`)
       .then ((resp)=>setDetailsPokemon(resp.data))
-      console.log (detailsPokemon)
-      
+            
    },[])
 
 
@@ -37,29 +36,47 @@ const PokemonDetailsPage = () => {
          <p>{type.type.name}</p>
       </div>
    })
-
-//   const renderImagPoke = detailsPokemon.name && detailsPokemon.name.map ((name)=>{
-//    return <div>
-//       <p>{name.name}</p>
-//    </div>
-//   })
-
    return (
       <div>
          <PageDetailsContainer>
-            {idDoPokemon}
-            <p>Quando o usuário clicar para ver os detalhes de algum Pokemon específico, deve abrir a seguinte página, com as informações do pokemon</p>
-            <button onClick={()=>goToPokedexPage} > voltar </button>
-            <>{renderPokemonStats}</> 
+               <HeaderDetails>
+                  {idDoPokemon}
+                  {detailsPokemon && detailsPokemon.sprites && (<div>
+                        <img src={detailsPokemon.sprites.versions["generation-ii"].crystal.front_default}/>                  
+                  </div>) }
+                  <button onClick={()=>goToPokedexPage} > voltar </button>
+               </HeaderDetails>
 
-            <ContainerMoves>
-               {renderPokemonMoves}
-            </ContainerMoves>
+            <ContainerMain>        
 
-            <ContainerType>        
-               {renderPokemonType}
-            </ContainerType>
-         </PageDetailsContainer>
+                  <ContainerStats>
+                     <h2>Estatísticas</h2>
+                     {renderPokemonStats}
+                  </ContainerStats> 
+
+
+               <ScreenImg>
+               {detailsPokemon && detailsPokemon.sprites && (<div>
+                     <img src={detailsPokemon.sprites.versions["generation-v"]["black-white"].animated.front_default}/>
+                     <img src={detailsPokemon.sprites.versions["generation-v"]["black-white"].animated.back_default}/>
+
+               </div>) }
+               </ScreenImg>
+               
+               
+                        <ContainerMoves>
+                  <h2>Movimentos</h2>
+                  {renderPokemonMoves}
+               </ContainerMoves>
+
+               <ContainerType>        
+                  {renderPokemonType}
+               </ContainerType>
+               
+             </ContainerMain> 
+        
+
+            </PageDetailsContainer>
       </div>
    )
 }
