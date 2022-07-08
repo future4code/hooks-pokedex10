@@ -158,6 +158,5 @@ _Qualquer dúvida ou sugestão, chama no contatinho!_
   
 </table>
 
-<br>
 
 ### Feito com 💕 e muita dedicação
