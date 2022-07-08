@@ -90,8 +90,6 @@ O objetivo foi criar um aplicativo para mostar novas mensagens.
 
 https://homeless-home.surge.sh/
 
-<br>
-
 <h1>
     <br>
     <p style="font-weight: bold;">💻 Como rodar o projeto localmente</p>
