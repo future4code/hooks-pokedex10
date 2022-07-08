@@ -1,19 +1,13 @@
 <h1 align="center">
-<br>
 <p align="center" style="font-weight: bold;">🚀 Projeto Pokédex </p>
 </h1>
 
 <center>
    <img src="https://tm.ibxk.com.br/2019/09/30/30091641838086.jpg?ims=1120x420" width="100%" height="350" />
 
-</center
-
-<br>
-
-<br>
+</center>
 
 <h1>
-    <br>
     <p style="font-weight: bold;">🧠 Contexto</p>
 </h1>
 
@@ -31,16 +25,12 @@ O objetivo foi criar um aplicativo para mostar novas mensagens.
 - 👨‍💻 Desenvolvedores
 
 <h1>
-    <br>
     <p style="font-weight: bold;">🎯 Objetivo do projeto</p>
 </h1>
    
 <p align="justify">A ideia é usar a Poke Api como fonte de dados para o projeto. Ela é uma API pública, bastante utilizada como fonte de dados para aplicações focadas em aprendizado de programação. Assim o objetivo é criar um site sobre Pokémon com o intuito de aplicar os conhcemintos adquiridos ao longo da décima primeira semana do bootcamp de desenvolvimento web fullstack da Labenu. O foco principal desse projeto foi aplicar os conhecimentos sobre: Estado Global, React Context, Providers e Consumers, Hook useContext, Organização dos dados e do componente de Estado Global. Consequentemente contribuiu para fixar conhcecimentos anteriores sobre o desenvolvimento com React.</p>
 
-<br>
-
 <h1>
-    <br>
     <p style="font-weight: bold;">⚙️ Requisitos</p>
 </h1>
 
@@ -63,10 +53,8 @@ O objetivo foi criar um aplicativo para mostar novas mensagens.
   - Ver uma tabela de movimentos do Pokémon;
   - Poder voltar para as outras páginas.
 
-<br>
 
 <h1>
-    <br>
     <p style="font-weight: bold;">✨ Funcionalidades</p>
 </h1>
 
@@ -77,21 +65,18 @@ O objetivo foi criar um aplicativo para mostar novas mensagens.
 - Página de Detalhes: Rederiza os detalhes do pokémon que o usuário clicou na home ou na pokédex, além disso ele consegue transitar entre os detalhes de todos os pokémon ao clicar nas setas de próximo e anterior.
 
 <h1>
-    <br>
     <p style="font-weight: bold;">❌O Que Não Funciona</p>
 </h1>
 
 - Responsividade
 
 <h1>
-    <br>
     <p style="font-weight: bold;">🔗 Link do projeto no Surge</p>
 </h1>
 
 https://homeless-home.surge.sh/
 
 <h1>
-    <br>
     <p style="font-weight: bold;">💻 Como rodar o projeto localmente</p>
 </h1>
 
@@ -104,10 +89,8 @@ Siga os passos e inclua as informações abaixo:
 | Instale as dependências   | `npm i`            |
 | utilize o script de start | `npm start`        |
 
-<br>
 
 <h1>
-    <br>
     <p style="font-weight: bold;">🎨 Layout</p>
 </h1>
 
@@ -134,7 +117,6 @@ Siga os passos e inclua as informações abaixo:
 </p>
 
 <h1>
-    <br>
     <p style=" font-weight: bold;">🛠️ Tecnologias Utilizadas</p>
 </h1>
 
@@ -147,10 +129,7 @@ Siga os passos e inclua as informações abaixo:
  
 </div>
 
-<br>
-
 <h1>
-    <br>
     <p style=" font-weight: bold;">📚 Bibliotecas utilizadas</p>
 </h1>
 
@@ -161,14 +140,10 @@ Siga os passos e inclua as informações abaixo:
 - [chackra ui](https://chakra-ui.com/)
 - [ajna/pagination](https://www.npmjs.com/package/@ajna/pagination)
 
-<br>
 
 <h1>
-    <br>
     <p style=" font-weight: bold;">👨‍💻 Desenvolvedores</p>
 </h1>
-
-<br>
 
  <table>
 
